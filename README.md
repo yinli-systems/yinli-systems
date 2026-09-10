@@ -37,7 +37,7 @@ unmerged branch claims.
 - [SWE-bench #598](https://github.com/SWE-bench/SWE-bench/pull/598) → [upstream commit `a5ecda6`](https://github.com/SWE-bench/SWE-bench/commit/a5ecda6640d13f89848a3dceaa08585431d258db) — pytest skipped-test grading fix that closes a real scoring exploit.
 - [Ray #64184](https://github.com/ray-project/ray/pull/64184) — autoscaler metrics handling for deleted node types.
 - [PyTorch TorchTitan #3456](https://github.com/pytorch/torchtitan/pull/3456) — LoRA parameter freezing for non-linear modules.
-- [Apache TVM #19818](https://github.com/apache/tvm/pull/19818) — ONNX BatchNormalization inference-mode preservation.
+- [Apache TVM #19818](https://github.com/apache/tvm/pull/19818) and [#19899](https://github.com/apache/tvm/pull/19899) — ONNX BatchNormalization inference-mode preservation and actionable VM diagnostics for unlowered Relax operators.
 - [ONNX Runtime #29140](https://github.com/microsoft/onnxruntime/pull/29140) — CUDA/FMHA initialization for large-head kernel variants.
 - [FlashAttention #2671](https://github.com/Dao-AILab/flash-attention/pull/2671) — CuTe SM120/SM121 compile-time argument handling.
 - [CARLA #9791](https://github.com/carla-simulator/carla/pull/9791) — LiDAR smoke-helper signature compatibility.
