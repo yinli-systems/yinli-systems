@@ -32,6 +32,7 @@ unmerged branch claims.
 
 - [Inspect AI #4371](https://github.com/UKGovernmentBEIS/inspect_ai/pull/4371) — chunked oversized sandbox JSON-RPC responses while preserving host output limits.
 - [Triton #10411](https://github.com/triton-lang/triton/pull/10411) and [#10413](https://github.com/triton-lang/triton/pull/10413) — runtime cache-group integrity and autotune benchmark reliability.
+- [Triton #10429](https://github.com/triton-lang/triton/pull/10429) — reject excess tensor slice indices according to source rank, with compatible keep-dimension reduction indexing and regression coverage.
 - [Apache DataFusion #23043](https://github.com/apache/datafusion/pull/23043), [#23066](https://github.com/apache/datafusion/pull/23066), [#23226](https://github.com/apache/datafusion/pull/23226), and [#23232](https://github.com/apache/datafusion/pull/23232) — aggregate semantics, spill merge fan-in, partition-path correctness, and scalar UDF literal arguments aligned with coerced return fields.
 - [Apache DataFusion #25300](https://github.com/apache/datafusion/pull/25300) — made sliced floating-point list set operations scale with the visible range rather than hidden backing data while preserving signed-zero, NaN, and null semantics.
 - [Apache DataFusion #24890](https://github.com/apache/datafusion/pull/24890) — upstream review contribution whose adopted recommendations preserved native scheduling and tightened WASM regression coverage before merge.
