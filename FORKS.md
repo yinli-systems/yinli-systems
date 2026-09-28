@@ -3,7 +3,9 @@
 [Profile](README.md) · [Upstream evidence](UPSTREAM.md) · [Original projects](PROJECTS.md)
 
 These public forks are working copies of upstream projects, **not original projects
-or claims of authorship of their full codebases**. Their upstream READMEs, licenses,
+or claims of authorship of their full codebases**. Repository descriptions identify
+them as contribution workspaces; their website links lead to the contribution
+index or to upstream PR history. Their upstream READMEs, licenses,
 commit history, and contribution branches remain intact. Actual contributions are
 presented through upstream PRs, commits, reviews, and reports in the evidence index.
 

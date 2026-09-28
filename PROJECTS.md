@@ -29,11 +29,8 @@ for space on the profile. Forks are listed separately and are not claimed as ori
 
 | Project | Focus |
 |---|---|
-| [bitnet-1p58b-experiments](https://github.com/yinli-systems/bitnet-1p58b-experiments) | Low-bit training and GPU instrumentation experiments. |
-| [scitrace-rl](https://github.com/yinli-systems/scitrace-rl) | Scientific-workflow trace validation and reward-data prototype. |
 | [goemotions-roberta-large-focal](https://github.com/yinli-systems/goemotions-roberta-large-focal) | Multilabel emotion-classification experiment. |
 | [accessible-route-planner](https://github.com/yinli-systems/accessible-route-planner) | Accessibility-aware routing and application infrastructure. |
-| [ember-finance-swiftui](https://github.com/yinli-systems/ember-finance-swiftui) | Local-first SwiftUI personal-finance application. |
 | [top-papers-ai](https://github.com/yinli-systems/top-papers-ai) | Local research-paper discovery and notification CLI. |
 | [nagarmitra-gemma4](https://github.com/yinli-systems/nagarmitra-gemma4) | Additional application experiment; not a flagship systems result. |
 
