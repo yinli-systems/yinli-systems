@@ -2,12 +2,36 @@
 
 [Profile](README.md) · [Projects](PROJECTS.md) · [Fork workspaces](FORKS.md)
 
-**Status checked: 2026-09-28.** This index separates authored merged pull requests,
-changes adopted through another upstream commit, review participation, issue reports,
-and open proposals. Repository names are not a substitute for the scope of a change.
-The linked upstream record is authoritative if a status changes after this snapshot.
+**Status update: 2026-10-15.** vLLM #59518, #58181 and DataFusion #25303
+were rechecked as merged. Other entries may reflect earlier verification. This index
+separates authored merged pull requests, changes adopted through another upstream
+commit, review participation, issue reports, and open proposals. Repository names
+are not a substitute for the scope of a change. The linked upstream record is
+authoritative if a status changes after this snapshot.
 
 ## Representative engineering work
+
+### Generate/derender logprob correctness · vLLM
+
+[PR #59518](https://github.com/vllm-project/vllm/pull/59518), **merged 2026-10-15**.
+Generate preserves the engine's logprob candidates; derender applies the matching
+chat or completions endpoint's `top_logprobs` cutoff, including the sampled-token
+case. The PR reports an L20 live-server parity test reducing mismatched positions
+from **215 to 0** across **1,632** comparable token positions. Tests also cover
+Python/Rust implementations and sampled tokens outside the top-k set. This is a
+correctness change, not an end-to-end serving speedup claim. It builds on merged
+[PR #58181](https://github.com/vllm-project/vllm/pull/58181), which added
+integer token IDs to generate output logprobs.
+
+### Dictionary group-by benchmark coverage · DataFusion
+
+[PR #25303](https://github.com/apache/datafusion/pull/25303), **merged 2026-10-14**.
+Extend benchmark coverage across dictionary layouts, `Utf8View`, plain strings,
+runtime encoding, absolute distinct-value count (NDV), value width, and input batch
+size, with grouped-count equivalence checks. Local results show that dictionary
+encoding can help at some NDV/width combinations and regress at others. This
+adds a measurement surface for future cost decisions; **it does not implement an
+optimizer policy or change runtime query behavior**.
 
 ### Distributed RL statistics · TorchTitan
 
@@ -57,6 +81,8 @@ ownership, malformed chunks, concurrent handles, and cleanup.
 
 | Upstream PR | Change |
 |---|---|
+| [vllm-project/vllm #59518](https://github.com/vllm-project/vllm/pull/59518) | Match endpoint-specific `top_logprobs` behavior through generate/derender; Python/Rust tests and live-server parity evidence. |
+| [vllm-project/vllm #58181](https://github.com/vllm-project/vllm/pull/58181) | Return integer token IDs for generate output logprobs; maintain Python/Rust and derender compatibility. |
 | [triton-lang/triton #10411](https://github.com/triton-lang/triton/pull/10411) | Treat incomplete local and remote cache groups as misses. |
 | [triton-lang/triton #10413](https://github.com/triton-lang/triton/pull/10413) | Skip benchmarking when pruning leaves one autotune configuration. |
 | [triton-lang/triton #10429](https://github.com/triton-lang/triton/pull/10429) | Reject tensor slice indices that consume more dimensions than the source rank. |
@@ -70,6 +96,7 @@ ownership, malformed chunks, concurrent handles, and cleanup.
 
 | Upstream PR | Change |
 |---|---|
+| [apache/datafusion #25303](https://github.com/apache/datafusion/pull/25303) | Expand dictionary group-by benchmark scenarios and correctness validation; no optimizer change. |
 | [apache/datafusion #25300](https://github.com/apache/datafusion/pull/25300) | Normalize only visible child values in sliced floating-point list set operations. |
 | [apache/datafusion #23043](https://github.com/apache/datafusion/pull/23043) | Add the order-insensitive any_value SQL aggregate. |
 | [apache/datafusion #23066](https://github.com/apache/datafusion/pull/23066) | Make external-sort spill merge fan-in configurable. |
@@ -111,7 +138,6 @@ or component benchmark is not presented as completed upstream integration.
 | Proposal | Technical scope | Evidence boundary |
 |---|---|---|
 | [vLLM #57442](https://github.com/vllm-project/vllm/pull/57442) | Sampled-token logprob transport without the general top-k object path | L20 serving A/B; exactness checks use batch-invariant execution. Open. |
-| [vLLM #58181](https://github.com/vllm-project/vllm/pull/58181) | Integer token IDs and a generate-specific logprob response contract | Python/Rust unit coverage; not a speed claim. Open. |
 | [vLLM #58198](https://github.com/vllm-project/vllm/pull/58198) | Request-free CPU→GPU KV prefetch with explicit submission/completion states | Reserve-gated primitive. Benefits under slack do not establish gains under occupancy. Open. |
 | [Arrow #11062](https://github.com/apache/arrow-rs/pull/11062) | Compression-preserving RunEndEncoded numeric kernels | Differential tests and component benchmarks; low-compression cases can lose. Open. |
 | [DataFusion #23065](https://github.com/apache/datafusion/pull/23065) | Native grouped any_value accumulation | Component-level benchmarks, not whole-query gains. Open. |
